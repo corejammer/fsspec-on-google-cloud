@@ -119,4 +119,4 @@ File caching
 with fs.open('my-bucket/file.txt', mode='rb', cache_type='readahead') as f:
     data = f.read()
 ```
-This list can go on indefinitely, as the functionality of fsspec is truly extensive. For example, it includes some support for asynchronous operations, the ability to work over SSH, support for unique file systems such as Google Cloud, and more. You can explore all these and other features here.
+This list can go on indefinitely, as the functionality of fsspec is truly extensive. For example, it includes some support for asynchronous operations, the ability to work over SSH, support for unique file systems such as Google Cloud, and more. You can explore all these and other features [here](https://filesystem-spec.readthedocs.io/en/stable/features.html).
