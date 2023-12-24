@@ -120,3 +120,13 @@ with fs.open('my-bucket/file.txt', mode='rb', cache_type='readahead') as f:
     data = f.read()
 ```
 This list can go on indefinitely, as the functionality of fsspec is truly extensive. For example, it includes some support for asynchronous operations, the ability to work over SSH, support for unique file systems such as Google Cloud, and more. You can explore all these and other features [here](https://filesystem-spec.readthedocs.io/en/stable/features.html).
+
+### 5. Let's talk about the drawbacks of fsspec.
+   - Lack of support for generating signed URLs: Fsspec is unable to generate signed URLs, meaning it does not support the automatic creation of URLs with embedded security measures, such as signatures for temporary access to protected resources. In cloud storage systems like AWS S3, signed URLs are used to provide time-limited access to files without the need to provide full credentials.
+
+   - Limited performance with very large files: When working with extremely large files (e.g., several terabytes), fsspec may encounter performance issues. This could be attributed to fsspec being designed for universality and ease of use rather than optimizing for extremely large data volumes. In such cases, using a more specialized solution focused on handling large files (e.g., pyspark) may be necessary.
+
+   - Complexity in configuring authentication for connections: Configuring authentication in fsspec, especially for connecting to secure file systems, can be complex. This is because different data storage systems require various authentication methods, and configuring these parameters in fsspec may sometimes require additional efforts.
+
+### 6. Conclusion:
+   Fsspec significantly simplifies and standardizes the data access process for developers. Its flexibility and broad support for various data storage systems open up new possibilities in application development, especially in areas where fast and reliable access to data from diverse sources is needed.
